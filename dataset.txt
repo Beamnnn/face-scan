@@ -1,0 +1,14 @@
+ข้อมูลรูปที่ใช้ ทดสอบ รูปสามารถทดสอบได้เลยค่ะ 5 รูปก่อนหน้าคือที่เข้าระบบแล้ว
+face-scan/
+│── backend/        # โค้ดฝั่ง Backend (API, Database, AI Model)
+│   │── app.py      # หรือ server.ts, main.py ตามที่ใช้
+│   │── requirements.txt  # ถ้าใช้ Python
+│   │── package.json  # ถ้าใช้ Node.js
+│   │── models/      # เก็บโมเดล AI ที่ใช้
+│── frontend/       # โค้ดฝั่ง Frontend (Web UI)
+│   │── pages/      # หน้าเว็บ เช่น Login, Dashboard
+│   │── components/  # ส่วนประกอบ UI ต่างๆ
+│   │── package.json  # ถ้าใช้ Next.js/React
+│── dataset/        # ถ้ามีชุดข้อมูลที่ใช้ Train AI
+│── .gitignore
+│── README.md       # คำอธิบายโปรเจค
