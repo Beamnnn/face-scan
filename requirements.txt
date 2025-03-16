@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pymongo
+numpy
+opencv-python
+face-recognition
+dlib-bin
+cmake
