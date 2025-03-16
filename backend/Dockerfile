@@ -1,17 +1,31 @@
-# ใช้ Python 3.10
-FROM python:3.10
+# ใช้ Python image ที่รองรับ dlib
+FROM python:3.10-slim
 
-# กำหนด Working Directory
+# ติดตั้ง dependencies ที่จำเป็น
+RUN apt-get update && apt-get install -y \
+    cmake \
+    gcc \
+    g++ \
+    make \
+    libopenblas-dev \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libgl1-mesa-glx \
+    && rm -rf /var/lib/apt/lists/*
+
+# ตั้งค่าตัวแปร Environment
+ENV PIP_NO_CACHE_DIR=1 \
+    PYTHONUNBUFFERED=1
+
+# กำหนดโฟลเดอร์ทำงาน
 WORKDIR /app
 
-# คัดลอกไฟล์ทั้งหมด
-COPY . /app
+COPY main.py requirements.txt database.py face_data/ /app/
 
-# ติดตั้ง dependencies
+# ติดตั้ง dlib และ dependencies
+RUN pip install --no-cache-dir cmake dlib
 RUN pip install --no-cache-dir -r requirements.txt
 
-# เปิดพอร์ต 8000
-EXPOSE 8000
-
-# รัน Backend ด้วย Uvicorn
-CMD ["uvicorn", "main:app", "--host=0.0.0.0", "--port=8000"]
+# รัน FastAPI ผ่าน Uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
