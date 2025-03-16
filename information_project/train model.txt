@@ -1,0 +1,12 @@
+โฟลเดอร์ backend/models/ หรือที่เกี่ยวข้อง น่าจะมีโค้ดที่ใช้ฝึกโมเดล AI
+โค้ดที่ใช้ฝึกโมเดลมักอยู่ในไฟล์ เช่น train.py, model.py
+คำสั่งหลัก ๆ ในการฝึกโมเดลอาจเป็นแบบนี้:
+python
+คัดลอก
+แก้ไข
+from model import FaceRecognitionModel
+
+model = FaceRecognitionModel()
+model.train(data_path="dataset/train")
+model.evaluate(data_path="dataset/test")
+model.save("face_model.pth")

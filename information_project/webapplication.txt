@@ -1,0 +1,3 @@
+🔹 Frontend: (React.js / Next.js / Streamlit)
+🔹 Backend: (FastAPI / Flask / NestJS / Express)
+
